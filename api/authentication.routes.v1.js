@@ -11,11 +11,11 @@ var auth2 = require('../auth/authentication');
 var db = require('../config/db');
 
 //
-// Hier gaat de gebruiker inloggen.
-// Input: username en wachtwoord
+// Hier gaat de gebruiker inloggen
+// Input: username en wachtwoord 
 // ToDo: 
-//	 - zoek de username in de database, en vind het password wat opgeslagen is 
-// 	 - als user gevonden en password matcht, dan return valide token
+//	 - zoek de username in de database, en vind het password wat opgeslagen is. 
+// 	 - als user gevonden en password matcht, dan return valide token.
 //   - anders is de inlogpoging gefaald - geef foutmelding terug.
 //
 
@@ -28,7 +28,7 @@ router.post('/register', function (req,res) {
     var query = {
         sql: 'INSERT INTO `customer`(`first_name`, `last_name`) VALUES (?, ?)',
         values: [username, password],
-        timeout: 2000 // 2secs
+        timeout: 2000 // 2sec
     };
 
 
@@ -49,7 +49,7 @@ router.post('/register', function (req,res) {
 
 router.post('/login', function(req, res) {
 
-    // Even kijken wat de inhoud is
+    // Even bekijken wat de inhoud is..
     // console.dir(req.body);
 
     var username = req.body.username;
@@ -119,5 +119,5 @@ router.post('/login', function(req, res) {
 //
 // });
 
-// Hiermee maken we onze router zichtbaar voor andere bestanden. 
+// Hiermee wordt router zichtbaar gemaakt voor andere bestanden.
     module.exports = router;
