@@ -6,13 +6,12 @@ var url = require('url');
 routes.get('/films', function(req, res){
 
 	var queryData = url.parse(req.url, true).query;
-	var offset = parseInt(queryData.offset);
-	var count = parseInt(queryData.count);
+
 
 	//console.log(offset,count);
 	//toevoegen van offset en count individueel, ook films individueel nog doen
 
-	db.query('SELECT * FROM film ORDER BY film_id ASC LIMIT ?, ?', [offset, count], function (error, results, fields) {
+	db.query('SELECT * FROM film ORDER BY film_id ASC', function (error, results, fields) {
 		if (error) {
 			console.log(error, results);
         	res.send({
