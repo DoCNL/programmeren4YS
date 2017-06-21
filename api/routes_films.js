@@ -4,12 +4,7 @@ var db = require('../config/db');
 var url = require('url');
 
 routes.get('/films', function(req, res){
-
 	var queryData = url.parse(req.url, true).query;
-
-
-	//console.log(offset,count);
-	//toevoegen van offset en count individueel, ook films individueel nog doen
 
 	db.query('SELECT * FROM film ORDER BY film_id ASC', function (error, results, fields) {
 		if (error) {
@@ -18,10 +13,8 @@ routes.get('/films', function(req, res){
           		"code":400,
           		"failed":"Error occurred"
         	})
-        	console.log(offset, count);
         }else{
         	res.json(results);
-        	console.log(offset, count);
         }
 	});
 });
