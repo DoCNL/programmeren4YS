@@ -30,6 +30,7 @@ routes.post('/login', function(req, res) {
             var token = auth.encodeToken(email);
             res.status(200).json({
                  "token": token,
+				 "userid": results[0].customer_id,
             });
           }
           else{
