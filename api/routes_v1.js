@@ -120,19 +120,6 @@ routes.post('/register', function(req, res){
 
     
 
-
-
-
-	//Registration
-   
-    // if (username == (database user) && password == (database pass)) {
-        
-    // } else {
-    //     console.log('Input: username = ' + username + ', password = ' + password);
-    //     res.status(401).json({ "error": "Account already exists with that username, cya" })
-    // }
-
-
 });
 
 module.exports = routes;

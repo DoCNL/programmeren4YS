@@ -14,7 +14,7 @@ routes.get('/films', function(req, res){
           		"failed":"Error occurred"
         	})
         }else{
-        	res.json(results);
+        	res.json({ result: results });
         }
 	});
 });
