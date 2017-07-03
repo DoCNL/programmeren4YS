@@ -26,25 +26,25 @@ routes.post('/login', function(req, res) {
       }else{
         //console.log('The solution is: ', results);
         if(results.length > 0){
-          if(results[0].password == nonPassword){
+          if(results[0].password == password){
             var token = auth.encodeToken(email);
             res.status(200).json({
                  "token": token,
-				 "userid": results[0].customer_id,
+                 "userid": results[0].customer_id,
             });
           }
           else{
             res.send({
               "code":204,
-              "Failed":"Email and password do not match"
+              "success":"Email and password do not match"
                 });
-            console.log(results[0].email, password);
+            //console.log(results[0].email, password);
           }
         }
         else{
           res.send({
             "code":204,
-            "Failed":"Email does not exist"
+            "success":"Email does not exist"
               });
         }
       }
@@ -59,7 +59,7 @@ routes.post('/register', function(req, res){
 	console.dir(req.body);
 
     var password = req.body.password;
-    //var EncPass = CryptoJS.MD5(password);
+    var EncPass = CryptoJS.MD5(password);
 
     //Create Date
     var currentdate = new Date(); 
@@ -80,7 +80,7 @@ routes.post('/register', function(req, res){
         "first_name": req.body.first_name,
         "last_name": req.body.last_name,
         "email": email,
-        "password": req.body.password,
+        "password": EncPass,
         "active": 1,
         "create_date": datetime,
         "last_update": datetime
@@ -120,6 +120,19 @@ routes.post('/register', function(req, res){
     });
 
     
+
+
+
+
+	//Registration
+   
+    // if (username == (database user) && password == (database pass)) {
+        
+    // } else {
+    //     console.log('Input: username = ' + username + ', password = ' + password);
+    //     res.status(401).json({ "error": "Account already exists with that username, cya" })
+    // }
+
 
 });
 
