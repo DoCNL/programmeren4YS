@@ -12,8 +12,8 @@ routes.post('/login', function(req, res) {
 
     // De username en pwd worden meegestuurd in de request body
     var email = req.body.email;
-    var nonPassword = req.body.password;
-    var password = CryptoJS.MD5(nonPassword);
+    var password = req.body.password;
+    //var password = CryptoJS.MD5(nonPassword);
 
     // Kijk of de gegevens matchen. Zo ja, dan token genereren en terugsturen.
     db.query('SELECT * FROM customer WHERE email = ?', [email], function (error, results, fields) {
