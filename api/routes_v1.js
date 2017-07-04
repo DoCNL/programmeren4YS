@@ -36,7 +36,7 @@ routes.post('/login', function(req, res) {
           else{
             res.send({
               "code":204,
-              "success":"Email and password do not match"
+              "Error":"Email and password do not match"
                 });
             //console.log(results[0].email, password);
           }
@@ -44,7 +44,7 @@ routes.post('/login', function(req, res) {
         else{
           res.send({
             "code":204,
-            "success":"Email does not exist"
+            "Error":"Email does not exist"
               });
         }
       }
