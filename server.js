@@ -12,7 +12,7 @@ var app = express();
 app.use(bodyParser.urlencoded({ 'extended': 'true' })); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
-
+/*
 app.use(expressJWT({
     secret: config.secretkey
 }).unless({
@@ -23,7 +23,7 @@ app.use(expressJWT({
         { url: '/api/v1/films/10', methods: ['GET'] } //testURL
     ]
 }));
-
+*/
 app.use('/api/v1', routes_v1);
 app.use('/api/v1', routes_films);
 app.use('/api/v1', routes_rentals);
